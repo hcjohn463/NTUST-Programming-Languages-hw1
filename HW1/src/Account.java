@@ -1,9 +1,13 @@
+import java.time.LocalDate;
 public class Account
 {
-	public String accountName;
-	public String accountType;
-	public double interestRate;
-	public double accountBalance;
+	protected String accountName;
+	protected String accountType;
+	protected LocalDate openDate;
+	protected LocalDate lastAccessDate;
+	protected LocalDate lastInterestDate;
+	protected double interestRate;
+	protected double accountBalance;
 	
 	public Account(String name, double balance) {
 		this.accountName = name;
@@ -16,6 +20,9 @@ public class Account
 	public String getType() {
 		return accountType;
 	}
+	public LocalDate getLastAccessDate() {
+		return lastAccessDate;
+	}
 	
 	public double getInterestRate() {
 		return interestRate;
@@ -25,17 +32,14 @@ public class Account
 		return accountBalance;
 	}
 	
-	public void deposit(double depositMoney) {
-		System.out.println("Deposit money: " + depositMoney + "\n");
-		accountBalance += depositMoney;
+	public double deposit(double depositMoney, LocalDate depositDate) {
+		return (deposit(depositMoney, depositDate));
 	}
 	
-	public void withdraw(double withdrawMoney) {
-		System.out.println("Withdraw money: " + withdrawMoney + "\n");
-		accountBalance -= withdrawMoney;
+	public double withdraw(double withdrawMoney,LocalDate withdrawDate) {
+		return(withdraw(withdrawMoney, withdrawDate));
 	}
-	public double computeInterest(int days) {
-		System.out.println("Account Balance: " + accountBalance);
-		return accountBalance;
+	public double computeInterest(LocalDate interestDate) {
+		return(computeInterest(interestDate));
 	}
 }
